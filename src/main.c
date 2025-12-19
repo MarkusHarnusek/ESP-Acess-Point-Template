@@ -16,6 +16,7 @@ static const char *TAG = "WiFi_AP";
 static const char *AP_SSID = "ESP Access Point";
 static const char *AP_PASSWORD = "password";
 static const int AP_MAX_CLIENTS = 100;
+static wifi_auth_mode_t AP_AUTHMODE = WIFI_AUTH_WPA3_PSK;
 
 uart_config_t uart_config = {
     .baud_rate = 115200,
@@ -104,7 +105,7 @@ static void wifi_init_softap(void)
             .ssid_len = strlen(AP_SSID),
             .password = AP_PASSWORD,
             .max_connection = AP_MAX_CLIENTS,
-            .authmode = WIFI_AUTH_WPA3_PSK
+            .authmode = AP_AUTHMODE
         },
     };
 
